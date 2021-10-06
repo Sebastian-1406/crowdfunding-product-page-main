@@ -5,7 +5,7 @@ let inputRadio = document.querySelectorAll("[type=radio]");
 let contenedor = document.querySelector(".select__modal");
 let closeModal = document.querySelector(".select__modal-close");
 let succesModal = document.querySelector(".success__modal");
-
+let body = document.querySelector("body");
 
 const navHamburguesa = (e) => {
   let icono = document.getElementById("icon-hamburger");
@@ -13,10 +13,14 @@ const navHamburguesa = (e) => {
     nav.classList.toggle("nav-activo");
     if (nav.classList[1] == "nav-activo") {
       icono.src = "./images/icon-close-menu.svg";
-      document.querySelector("body").classList.add("fondo");
+      body.classList.add("fondo");
+      icono.style.zIndex = 1;
+      body.style.overflow = "hidden"
     } else {
       icono.src = "./images/icon-hamburger.svg";
-      document.querySelector("body").classList.remove("fondo");
+      body.classList.remove("fondo");
+      icono.style.zIndex = 0;
+      body.style.overflow = "auto"
     }
   }
 };
@@ -41,7 +45,7 @@ const backProject = () => {
     caja.classList.remove("card__plan-activo");
   });
   contenedor.classList.toggle("select__modal-activo");
-  document.querySelector("body").classList.toggle("fondo");
+  body.classList.toggle("fondo");
 };
 
 btn.forEach((selectReward) => {
@@ -51,7 +55,7 @@ btn.forEach((selectReward) => {
     let caja = inputSelect.parentElement.parentElement;
     caja.classList.add("card__plan-activo");
     contenedor.classList.toggle("select__modal-activo");
-    document.querySelector("body").classList.toggle("fondo");
+    body.classList.toggle("fondo");
   });
 })
 
@@ -64,7 +68,7 @@ contenedor.addEventListener("click", (e) => {
 succesModal.addEventListener("click", (e) => {
     if(e.target.type == "submit"){
         document.querySelector(".success__modal").classList.remove("success__modal-activo");
-        document.querySelector("body").classList.remove("fondo")
+        body.classList.remove("fondo")
     }
 })
 

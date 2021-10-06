@@ -14,9 +14,9 @@ body {
 
 .hero {
     background-image: url("../images/image-hero-mobile.jpg");
-    background-position: center;
     background-size: cover;
-    height: 300px;
+    background-repeat: no-repeat;
+    height: 300px;    
 }
 
 .nav {
@@ -26,7 +26,6 @@ body {
     justify-content: space-between;
     padding: 25px;
     position: relative;
-    z-index: 10;
 }
 .nav-icon {
     cursor: pointer;
@@ -177,6 +176,7 @@ body {
     content: "";
     width: 70%;
     height: 10px;
+    left: 23px;
     background: var(--moderate-cyan);
     position: absolute;
     border-radius: 100px;
@@ -190,11 +190,13 @@ body {
     flex-direction: column;
     gap: 20px;
 }
+.card-disable {
+    opacity: .5;
+}
 .card__plan-nombre .card__texto-black{
     color: var(--black);
     font-weight: 700;
     margin: 0;
-
 }
 .card__plan-nombre .card__texto-cyan {
     color: var(--moderate-cyan);
@@ -319,4 +321,156 @@ body {
 }
 .success__modal-activo {
     display: block;
+}
+
+@media (min-width:700px){
+    .hero {
+        background-image: url("../images/image-hero-desktop.jpg");
+        background-position: center;
+        height: 350px;
+    }
+    .nav{
+        padding: 40px 5em;
+    }
+    .nav-icon {
+        display: none;
+    }
+    .nav__enlaces {
+        display: block;
+        position: relative;
+        top: inherit;
+        left: inherit;
+        right: inherit;
+        background: none;
+        z-index: inherit;
+    } 
+    .link-border {
+        border: none;
+    }
+    .nav__enlaces-link {
+        padding: 0;
+        display: inline-block;
+        padding: 0 10px;
+        color: white;
+        font-size: 14px;
+    }
+    .main {
+        max-width: 700px;
+        margin: auto;
+    }
+    .card__boton{
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    .btn {
+        padding: 18px 30px;
+        transition: background ease 1s;
+        -webkit-transition: background ease 1s;
+        -moz-transition: background ease 1s;
+        -ms-transition: background ease 1s;
+        -o-transition: background ease 1s;
+}
+    .btn:hover {
+        background: var(--dark-cyan);
+    }
+    .btn-bookmark {
+        display: inline-flex;
+        align-items: center;
+        background: #0001;
+        padding-right: 20px;
+        cursor: pointer;
+        outline: none;
+}
+    .btn-text{
+        display: inline-block;
+        padding-left: 15px;
+        color:var(--dark-gray);
+        font-weight: 700;
+    }
+    .btn-agotado:hover{
+        background: var(--dark-gray);
+    }
+    .btn-bookmark:focus .btn-text{
+        color: var(--dark-cyan);
+    }
+    .btn-bookmark:focus > .icon-bookmark circle {
+        fill: var(--dark-cyan);
+    }
+    .btn-bookmark:focus > .icon-bookmark path{
+        fill: var(--white);
+    }
+    
+
+    .card {
+        padding: 35px 30px;
+    }
+    
+    .card__info {
+        align-items: inherit;
+        gap: 30px;
+    }
+    .card__info-range::after{
+        left: 30px;
+    }
+
+    .card__info-contenedor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        text-align: left;
+    }
+    .card__info-item {
+        border-top: 0;
+        border-bottom: 0;
+        border-left: 1px solid #0002;
+        border-right: 1px solid #0002;
+        padding: 0 30px;
+    }
+    .card__plan-nombre {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    .card__plan-nombre .card__texto-cyan {
+        margin: 0;
+    }
+    .card__plan-restante {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .text-gray {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .success__modal {
+        margin: auto;
+        max-width: 450px;
+        left: 10%;
+        right: 10%;
+    }
+    .card__plan-item {
+        position: relative;
+    }
+    .text-restate{
+        position: absolute;
+        top: 20px;
+        right: 30px;
+    }
+}
+
+@media (min-width:1440px){
+    .hero{
+        height: 400px;
+    }
+    .nav{
+        padding: 50px 10.5em;
+    }
+    .main{
+        top: -80px;
+    }
+
 }
